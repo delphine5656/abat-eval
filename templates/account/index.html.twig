@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre compte sur notre agence d'espionnage{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Gestion de votre compte sur ABAT</h1>
+    <p> Bienvenue sur votre compte <span class="text-danger">{{ app.user.firstname }}</span>. C'est dans cet espace que vous allez pouvoir gérer toutes les missions de ABAT.</p>
+    <br>
+    <button><a href="{{ path('account_password') }}">Modifier mon mot de passe</a></button>
+    -modifier une mission
+    -ajouter une mission
+    -supprimer une mission
+    <br>
+</div>
+{% endblock %}

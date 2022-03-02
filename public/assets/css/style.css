@@ -1,0 +1,102 @@
+/*css commun */
+@import "~bootstrap/scss/bootstrap";
+
+h1{
+    color: red;
+    text-align: center;
+}
+button {
+    background-color: black;
+    color: red;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: black ;
+    transition:  0.3s;
+}
+
+button:hover{
+    background-color: red;
+    color: black;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+a:hover{
+    font-size: 1.1em;
+    color: black;
+}
+/*navbar */
+.logo-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px
+;
+}
+.navBar{
+    padding: 0.8rem;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(245,0,0,1) 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5em;
+
+}
+.navbar-toggler{
+    background-color: white;
+    color: red;
+}
+
+.nav-link{
+    color: #c2baba;
+    transition: all 0.3s;
+}
+.nav-link:hover{
+    color: white;
+    font-size: 1.5em;
+}
+
+/*page acceuil Header */
+
+.logo {
+    width: 50vw;
+    height: 80vh;
+}
+
+.titre-ppal{
+    font-size: 3.5em;
+}
+/*section missiosn */
+
+.cardTemplate{
+    border: solid 2px black;
+    border-radius: 10px;
+    height: 220px;
+}
+
+.recherche{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1.5em;
+    width: 70vw;
+    border: 1px solid red;
+}
+
+/*connexion*/
+.form-connexion{
+    border: 2px solid red;
+    width: 50vh;
+    padding: 1.5rem;
+}
+.prenom {
+    color: red;
+}
