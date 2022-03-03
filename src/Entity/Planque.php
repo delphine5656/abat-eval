@@ -60,7 +60,7 @@ class Planque
     }
     public function __toString()
     {
-        return $this->getName();
+        return $this->getName().'('.$this->getPays().')';
     }
 
     public function getId(): ?int

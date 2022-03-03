@@ -26,7 +26,7 @@ class CibleCrudController extends AbstractCrudController
             DateField::new('dateNaissance'),
             TextField::new('nameCode'),
             AssociationField::new('nationality'),
-            AssociationField::new('mission')
+            //AssociationField::new('mission')
 
 
 

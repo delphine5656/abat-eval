@@ -59,7 +59,8 @@ class Contact
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->getName().'('.$this->getNationality().')';
+
     }
 
     public function getId(): ?int

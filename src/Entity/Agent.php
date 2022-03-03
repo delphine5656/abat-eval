@@ -6,6 +6,7 @@ use App\Repository\AgentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AgentRepository::class)
@@ -64,7 +65,7 @@ class Agent
     }
     public function __toString()
     {
-        return $this->getFirstname();
+        return $this->getFirstname().'('.$this->getNationality().')';
     }
 
     public function getId(): ?int
@@ -131,6 +132,7 @@ class Agent
 
         return $this;
     }
+
 
     /**
      * @return Collection<int, Speciality>

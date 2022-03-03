@@ -3,18 +3,25 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Mission;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Filter\Type\EntityFilterType;
+use Symfony\Component\Validator\Constraints\Length;
 
 class MissionCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
+
         return Mission::class;
     }
 
@@ -39,5 +46,6 @@ class MissionCrudController extends AbstractCrudController
             AssociationField::new('pays'),
         ];
     }
+
 
 }

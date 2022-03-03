@@ -10,8 +10,11 @@
 
 <div class="example-wrapper">
     <h1>Gestion de votre compte sur ABAT</h1>
-    <p> Bienvenue sur votre compte <span class="text-danger">{{ app.user.firstname }}</span>. C'est dans cet espace que vous allez pouvoir gérer toutes les missions de ABAT.</p>
+    <p> Bienvenue sur votre compte <span class="text-danger">Administrateur</span>. C'est dans cet espace que vous allez pouvoir gérer toutes les missions de ABAT.</p>
     <br>
+    {%  if is_granted('ROLE_ADMIN') %}
+    <button><a href="{{ path('admin') }}">aller sur le panel d'administration</a></button>
+    {% endif %}
     <button><a href="{{ path('account_password') }}">Modifier mon mot de passe</a></button>
     -modifier une mission
     -ajouter une mission

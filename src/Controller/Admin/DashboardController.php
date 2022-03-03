@@ -14,9 +14,12 @@ use App\Entity\Speciality;
 use App\Entity\Statut;
 use App\Entity\TypePlanque;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -52,4 +55,14 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Statut', 'fa fa-calendar', Statut::class);
         yield MenuItem::linkToCrud('TypePlanque', 'fa fa-university', TypePlanque::class);
     }
+    public function configureCrud(): Crud
+    {
+        return Crud::new()
+            // this defines the pagination size for all CRUD controllers
+            // (each CRUD controller can override this value if needed)
+            ->setPaginatorPageSize(20)
+            ;
+    }
+
+
 }

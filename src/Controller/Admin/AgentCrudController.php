@@ -30,7 +30,7 @@ class AgentCrudController extends AbstractCrudController
             IntegerField::new('codeAuthentification'),
             AssociationField::new('speciality'),
             AssociationField::new('nationality'),
-            AssociationField::new('mission'),
+            //AssociationField::new('mission'),
 
         ];
     }

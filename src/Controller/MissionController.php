@@ -7,6 +7,7 @@ use App\Entity\Mission;
 use App\Form\SearchType;
 use App\Repository\MissionRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Dto\PaginatorDto;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,6 +31,7 @@ class MissionController extends AbstractController
     public function index(Request $request): Response
     {
         $missions = $this->entityManager->getRepository(Mission::class)->findAll();
+
 
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);

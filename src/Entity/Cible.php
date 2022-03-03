@@ -59,7 +59,7 @@ class Cible
 
     public function __toString()
     {
-        return $this->getFirstname();
+        return $this->getFirstname().'('.$this->getNationality().')';
     }
 
     public function getId(): ?int

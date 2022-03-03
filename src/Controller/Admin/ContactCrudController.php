@@ -25,7 +25,7 @@ class ContactCrudController extends AbstractCrudController
             DateField::new('dateNaissance'),
             TextField::new('nomCode'),
             AssociationField::new('nationality'),
-            AssociationField::new('mission')
+            //AssociationField::new('mission')
         ];
     }
 

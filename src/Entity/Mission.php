@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\Constraints as MyConstraint;
 
 /**
  * @ORM\Entity(repositoryClass=MissionRepository::class)
@@ -22,11 +23,13 @@ class Mission
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom de code est obligatoire")
      */
     private $nomCode;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le titre est obligatoire")
      */
     private $titre;
 
@@ -66,29 +69,35 @@ class Mission
 
     /**
      * @ORM\ManyToMany(targetEntity=Planque::class, inversedBy="missions")
+     * @MyConstraint\IsPlanquePays()
      */
     private $planque;
 
     /**
      * @ORM\ManyToOne(targetEntity=Speciality::class, inversedBy="missions")
      * @ORM\JoinColumn(nullable=false)
+     * @MyConstraint\IsAgentSpecialite()
      */
     private $speciality;
 
     /**
      * @ORM\ManyToOne(targetEntity=Pays::class, inversedBy="missions")
      * @ORM\JoinColumn(nullable=false)
+     * @MyConstraint\IsContactNationality
+     * @MyConstraint\IsPlanquePays()
      */
     private $pays;
 
     /**
      * @ORM\ManyToMany(targetEntity=Agent::class, inversedBy="missions")
-
+     * @MyConstraint\IsCibleNationalite()Nationality
+     * @MyConstraint\IsAgentSpecialite()
      */
     private $agent;
 
     /**
      * @ORM\ManyToMany(targetEntity=Contact::class, inversedBy="missions")
+     * @MyConstraint\IsContactNationality
      */
     private $contact;
 
@@ -97,6 +106,12 @@ class Mission
 
      */
     private $cible;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Test::class, inversedBy="missions")
+     * @MyConstraint\IsCibleNationalite()
+     */
+    private $test;
 
 
 
@@ -109,11 +124,12 @@ class Mission
         $this->agent = new ArrayCollection();
         $this->contact = new ArrayCollection();
         $this->cible = new ArrayCollection();
+        $this->test = new ArrayCollection();
 
     }
     public function __toString()
     {
-        return $this->getNomCode();
+        return $this->getTitre();
     }
 
     public function getId(): ?int
@@ -340,6 +356,31 @@ class Mission
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Test>
+     */
+    public function getTest(): Collection
+    {
+        return $this->test;
+    }
+
+    public function addTest(Test $test): self
+    {
+        if (!$this->test->contains($test)) {
+            $this->test[] = $test;
+        }
+
+        return $this;
+    }
+
+    public function removeTest(Test $test): self
+    {
+        $this->test->removeElement($test);
+
+        return $this;
+    }
+
 
 
 }
