@@ -10,11 +10,13 @@
 
     <div class=container">
         <h1>Les missions de l'agence ABAT</h1>
+        <p class="text-center">A ce jour l'agence ABAT compte {{ missions.getTotalItemCount }} missions</p>
         <div class="row ">
 
                 <div class="col-md-3 mb-2">
                     <h3>Filtrer</h3>
                     {{ form(formView) }}
+
                 </div>
 
             <div class="col-md-9 mb-2">
@@ -22,17 +24,21 @@
                 <div class="row">
                     {% for mission in missions %}
 
-                        <div class="cardTemplate position-relative m-2 " style="width: 18rem;">
+                        <div class="card position-relative m-2 " style="width: 18rem;">
 
                             <div class="card-body">
                                 <h5 class="text-center"> titre: {{ mission.titre }}</h5>
                                 <p class="price text-center"> <span class="">Statut:</span> {{ mission.statut }}</p>
                                 <p class="text-center"><span>Pays:</span> {{ mission.pays }}</p>
                                 <p class="text-center"><span>Type:</span> {{ mission.category }}</p>
-                                <a href="{{ path('mission', {'slug' : mission.slug}) }}" class="button bg-danger btn-sm position-absolute  start-50 translate-middle mt-2">voir la mission</a>
+                                <button><a  href="{{ path('mission', {'slug' : mission.slug}) }}">voir la mission</a></button>
+
                             </div>
                         </div>
                     {% endfor %}
+                    <div class="navigation bg-danger">
+                       {{ knp_pagination_render(missions) }}
+                    </div>
             </div>
             </div>
         </div>

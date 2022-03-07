@@ -11,6 +11,9 @@
     {% block stylesheets %}
         {# 'app' must match the first argument to addEntry() in webpack.config.js #}
         {{ encore_entry_link_tags('app') }}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="assets/css/style.css" rel="stylesheet">
+
 
         <!-- Renders a link tag (if your module requires any CSS)
              <link rel="stylesheet" href="/build/app.css"> -->
@@ -27,12 +30,10 @@
 
     <!-- Bootstrap core CSS -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="assets/css/style.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
-            font-size: 1.125rem;
+            font-size: 1rem;
             text-anchor: middle;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -40,11 +41,140 @@
             user-select: none;
         }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        /*css commun */
+        @import "~bootstrap/scss/bootstrap";
+
+        h1{
+            color: red;
+            text-align: center;
         }
+        button {
+            background-color: black;
+            color: red;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: black ;
+            transition:  0.3s;
+            margin-top: 15px;
+        }
+
+        button:hover{
+            background-color: red;
+            color: black;
+
+        }
+        li{
+            list-style: none;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        a:hover{
+            font-size: 1.2em;
+            color: black;
+        }
+        /*navbar */
+        .logo-img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+        }
+        .navBar{
+            padding: 0.8rem;
+            background: rgb(0,0,0);
+            background: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(245,0,0,1) 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5em;
+
+        }
+        .navbar-toggler{
+            background-color: white;
+            color: red;
+        }
+
+        .nav-link{
+            color: #c2baba;
+            transition: all 0.3s;
+        }
+        .nav-link:hover{
+            color: white;
+            font-size: 1.5em;
+        }
+
+        /*page acceuil Header */
+
+        .logo {
+            width: 50vw;
+            height: 80vh;
+        }
+
+        .titre-ppal{
+            font-size: 3.5em;
+        }
+        /*section missiosn */
+
+        .img-card{
+            height: 200px;
+            width: 200px;
+        }
+
+        .card{
+            border: solid 2px red;
+            border-radius: 10px;
+        }
+
+        .recherche{
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 1.5em;
+            width: 70vw;
+            border: 1px solid red;
+        }
+
+        /*connexion*/
+        .form-connexion{
+            border: 2px solid red;
+            width: 50vh;
+            padding: 1.5rem;
+        }
+
+        /*formulaire*/
+        .form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid  red;
+            margin: 2em;
+            padding: 2em;
+
+        }
+
+        .container-card{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container-ppal{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        label{
+            margin: 10px;
+        }
+
     </style>
 </head>
 <body>

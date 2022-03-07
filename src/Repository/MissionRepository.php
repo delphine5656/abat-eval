@@ -21,14 +21,15 @@ class MissionRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param Search $search
      * Requète qui permet de récupérer les missions en fonction de la recherche de l'utilisateur
      * @return Mission[]
      */
     public function findWithSearch(Search $search){
         $query = $this
-            ->createQueryBuilder('p')
-            ->select('c', 'p')
-            ->join('p.category', 'c');
+            ->createQueryBuilder('m') //m=table mission
+            ->select('c', 'm') //c=categorie m=mission
+            ->join('m.category', 'c'); //jointure entre les catégories de ma mission et ma table category
 
         if(!empty($search->categories)) {
             $query = $query
@@ -38,10 +39,9 @@ class MissionRepository extends ServiceEntityRepository
 
         if(!empty($search->string)) {
             $query = $query
-                ->andWhere('p.titre LIKE :string')
-                ->setParameter('string', "%{$search->string}");
+                ->andWhere('m.titre LIKE :string')
+                ->setParameter('string', "%{$search->string}%");
         }
-
 
         return $query->getQuery()->getResult();
     }

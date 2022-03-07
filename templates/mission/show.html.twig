@@ -12,34 +12,59 @@
     <h1>{{ mission.titre }}</h1>
     <div class="row">
         <div class="col-8 description">
-            <h5 class="text-center"> titre: {{ mission.titre }}</h5>
-            <p class="text-center">Nom de code: {{ mission.nomCode }}</p>
+            <h4 class="text-danger">Nom de code: {{ mission.nomCode }}</h4>
             <div class="card-body">
-                <p class="text-center">Type de la mission: {{ mission.category }}</p>
-                <p class="text-center">But de la mission: {{ mission.description }}</p>
+                <h5 class="text-danger">Les infos générales:</h5>
+                <p>Type de la mission: {{ mission.category }}</p>
+                <p>But de la mission: {{ mission.description }}</p>
                 <p>Date du début de mission: {{ mission.dateDebut |date("d/m/Y") }}</p>
                 <p>Date de fin de mission:{{ mission.dateFin |date("d/m/Y")}}</p>
-                <p class="price text-center"> <span class="">Statut:</span> {{ mission.statut }}</p>
-                <p class="text-center"><span>Pays:</span> {{ mission.pays }}</p>
-                <p class="text-center"><span>Spécialité:</span> {{ mission.speciality }}</p>
-                <h5>Les agents:</h5>
+                <p class="price"> <span class="">Statut:</span> {{ mission.statut }}</p>
+                <p><span>Pays:</span> {{ mission.pays }}</p>
+                <p><span>Spécialité:</span> {{ mission.speciality }}</p>
+                <h5 class="text-danger">Les agents:</h5>
                 <ul>
                     {% for agent in mission.agent %}
-                        <li>{{ dump(agent) }}</li>
+
+                        <li>{{ agent.firstname }} {{ agent.lastname }}
+                            <br>
+                            date de naissance: {{ agent.dateNaissance |date("d/m/Y") }}
+                            <br>
+                            code: {{ agent.codeAuthentification }}
+                            <br>
+                            nationalité: {{ agent.nationality }}
+                            <br>
+
+                        </li>
                     {% endfor %}
                 </ul>
 
-                <h5>Les contacts:</h5>
+                <h5 class="text-danger">Les contacts:</h5>
                 <ul>
                     {% for contact in mission.contact %}
-                        <li>{{ contact }}</li>
+                        <li>{{ contact.name }} {{ contact.lastname }}
+                            <br>
+                            date de naissance: {{ contact.dateNaissance |date("d/m/Y") }}
+                            <br>
+                            Nom de code: {{ contact.nomCode }}
+                            <br>
+                           nationalité: {{ contact.nationality }}
+                        </li>
                     {% endfor %}
                 </ul>
 
-                <h5>Les cibles:</h5>
+                <h5 class="text-danger">Les cibles:</h5>
                 <ul>
                     {% for cible in mission.cible %}
-                     <li>{{ cible }}</li>
+                        <li>
+                            {{ cible.firstname }} {{ cible.lastname }}
+                            <br>
+                            date de naissance: {{ cible.dateNaissance |date("d/m/Y") }}
+                            <br>
+                            Nom de code: {{ cible.nameCode }}
+                            <br>
+                            {{ cible.nationality }}
+                        </li>
                     {% endfor %}
                 </ul>
 

@@ -19,21 +19,31 @@ class ChangePasswordType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'disabled'=> true,
-                'label' => 'Mon prénom'
+                'label' => 'Mon prénom',
+                'attr' => [
+                    'class' => 'form-label m-3'
+    ]
             ])
             ->add('lastname', TextType::class, [
                 'disabled'=> true,
-                'label' => 'Mon nom'
+                'label' => 'Mon nom',
+                'attr' => [
+                    'class' => 'form-label m-3'
+                ]
             ])
             ->add('email', EmailType::class, [
                 'disabled'=> true,
-                'label' => 'Mon adresse e-mail'
+                'label' => 'Mon adresse e-mail',
+                'attr' => [
+                    'class' => 'form-label m-3'
+                ]
             ])
             ->add('old_password', PasswordType::class, [
                 'label' => 'Mon mot de passe',
                 'mapped' => false,
                 'attr' => [
-                    'placeholder' => 'veuillez saisir vot mot mot de passe actuelle'
+                    'placeholder' => 'veuillez saisir vot mot mot de passe actuelle',
+                    'class' => 'form-label m-3'
                 ]
             ])
             ->add('new_password', RepeatedType::class, [
@@ -42,13 +52,18 @@ class ChangePasswordType extends AbstractType
                 'invalid_message' => 'le mot de passe doit être identique au mot de passe confirmé',
                 'label' => 'Mon nouveau mot de passe',
                 'required' => true,
-                'first_options' => [
-                    'label' => 'mon nouveau mot de passe'],
-                'second_options' => ['label' => 'confirmez votre nouveau mot de passe']
+                'first_options' => ['label' => 'mon nouveau mot de passe'],
+                'second_options' => ['label' => 'confirmez votre nouveau mot de passe'],
+                'attr' => [
+                    'class' => 'form-label m-3'
+                ]
 
             ])
             ->add('submit', SubmitType::class, [
                 'label'  => 'valider votre nouveau mot de passe',
+                'attr' => [
+                    'class' => 'btn bg-danger'
+                ]
             ])
         ;
     }

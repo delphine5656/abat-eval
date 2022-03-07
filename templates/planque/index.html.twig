@@ -3,13 +3,11 @@
 {% block title %}Liste des planques de nos missions {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-    <div class=container">
+
+    <div class=container-ppal">
         <h1>Les planques de l'agence ABAT</h1>
+        <p class="text-center">A ce jour l'agence ABAT compte {{ planques.getTotalItemCount }} planques</p>
         <div class="row ">
             <div class="col-md-3 mb-2">
                 <h3>Filtrer</h3>
@@ -19,32 +17,27 @@
 
                 <div class="row">
                     {% for planque in planques %}
-                        <div class="position-relative m-2 " style="width: 18rem;">
+                        <div class="card position-relative m-2 " style="width: 18rem;">
 
                             <div class="card-body">
                                 <h5 class="price text-center"> <span class="">Nom: {{planque.name}}</span> </h5>
-                                <h5 class="text-center"> Pays: {{ planque.pays}} </h5>
                                 <p class="price text-center">Adresse: {{ planque.adresse}} </p>
-                                <p class="price text-center">Type: {{ planque.type}} </p>
-                                <h5>Les missions</h5>
+                                <h5 class="text-center"> Pays: {{ planque.pays}} </h5>
+                                <p class="price text-center">Type de planque: {{ planque.type}} </p>
+                                <h5 class="text-center">Les missions</h5>
                                 <ul>
                                     {% for mission in planque.missions %}
                                         <li>{{ mission }}</li>
                                     {% endfor %}
                                 </ul>
-
-
-
-
-
-
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             </div>
-
-
+        </div>
+        <div class="navigation bg-danger">
+            {{ knp_pagination_render(planques) }}
         </div>
     </div>
 {% endblock %}

@@ -11,6 +11,7 @@ use App\Validator\Constraints as MyConstraint;
 
 /**
  * @ORM\Entity(repositoryClass=MissionRepository::class)
+ * @ORM\Table(name="mission", indexes={@ORM\Index(columns={"nom_code", "titre", "description", "category_id","speciality_id", "pays_id"},flags={"fulltext"})})
  */
 class Mission
 {

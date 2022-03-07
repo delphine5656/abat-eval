@@ -10,6 +10,7 @@
 
     <div class=container">
         <h1>Les agents de l'agence ABAT</h1>
+        <p class="text-center">A ce jour l'agence ABAT compte {{ agents.getTotalItemCount }} agents</p>
         <div class="row ">
             <div class="col-md-3 mb-2">
                 <h3>Filtrer</h3>
@@ -19,9 +20,9 @@
 
                 <div class="row">
                     {% for agent in agents %}
-                        <div class=" position-relative m-2 " style="width: 18rem;">
+                        <div class=" position-relative m-2 card " style="width: 18rem;">
 
-                            <div class="">
+                            <div class="card-body">
                                 <h5 class="text-center"> Nom: {{ agent.firstname}} </h5>
                                 <p class="price text-center"> <span class="">{{ agent.lastname}}</span> </p>
                                 <p class="price text-center"> <span class="">{{ agent.dateNaissance |date("d/m/Y")}}</span> </p>
@@ -38,10 +39,6 @@
                                         <li>{{ mission }}</li>
                                     {% endfor %}
                                 </ul>
-
-
-
-
                             </div>
                         </div>
                     {% endfor %}
@@ -49,6 +46,9 @@
             </div>
 
 
+        </div>
+        <div class="navigation bg-danger">
+            {{ knp_pagination_render(agents) }}
         </div>
     </div>
 {% endblock %}

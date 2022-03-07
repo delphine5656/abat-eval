@@ -10,6 +10,7 @@
 
     <div class=container">
         <h1>Les contacts de l'agence ABAT</h1>
+        <p class="text-center">A ce jour l'agence ABAT compte {{ contacts.getTotalItemCount }} contacts</p>
         <div class="row ">
             <div class="col-md-3 mb-2">
                 <h3>Filtrer</h3>
@@ -44,6 +45,9 @@
             </div>
 
 
+        </div>
+        <div class="navigation bg-danger">
+           page: {{ knp_pagination_render(contacts) }}
         </div>
     </div>
 {% endblock %}

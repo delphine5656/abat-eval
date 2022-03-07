@@ -134,6 +134,7 @@ class Agent
     }
 
 
+
     /**
      * @return Collection<int, Speciality>
      */

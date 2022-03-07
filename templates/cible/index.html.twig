@@ -10,6 +10,7 @@
 
     <div class=container">
         <h1>Les cibles de l'agence ABAT</h1>
+        <p class="text-center">A ce jour l'agence ABAT compte {{ cibles.getTotalItemCount }} cibles</p>
         <div class="row ">
             <div class="col-md-3 mb-2">
                 <h3>Filtrer</h3>
@@ -40,10 +41,14 @@
                             </div>
                         </div>
                     {% endfor %}
+
                 </div>
             </div>
 
 
+        </div>
+        <div class="navigation bg-danger">
+            {{ knp_pagination_render(cibles) }}
         </div>
     </div>
 {% endblock %}

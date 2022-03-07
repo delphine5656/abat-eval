@@ -59,7 +59,7 @@ class MissionType extends AbstractType
                 'placeholder' => 'choisir les agents',
                 'class' => Agent::class,
                 'choice_label'=> function($agent){
-                return $agent->getFirstname().'('.$agent->getNationality().')';
+                return $agent->getFirstname().'('.$agent->getNationality().')'.$agent->getSpeciality();
                 },
                 'mapped' => false
             ])
