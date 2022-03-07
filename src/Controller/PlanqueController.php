@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Planque;
+use App\Classe\SearchPlanque;
+use App\Form\PlanqueSearchType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,8 +38,11 @@ class PlanqueController extends AbstractController
             $planques, /* query NOT result */
             $request->query->getInt('page', 1),  12);
 
+
+
         return $this->render('planque/index.html.twig', [
             'planques' => $planques,
+
         ]);
     }
 }

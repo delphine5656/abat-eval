@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Missions{% endblock %}
+{% block title %}détail de {{ mission.titre }}{% endblock %}
 
 {% block body %}
 <style>
@@ -25,15 +25,13 @@
                 <h5 class="text-danger">Les agents:</h5>
                 <ul>
                     {% for agent in mission.agent %}
-
                         <li>{{ agent.firstname }} {{ agent.lastname }}
                             <br>
                             date de naissance: {{ agent.dateNaissance |date("d/m/Y") }}
                             <br>
                             code: {{ agent.codeAuthentification }}
                             <br>
-                            nationalité: {{ agent.nationality }}
-                            <br>
+                            nationalité de l'agent: {{ agent.nationality }}
 
                         </li>
                     {% endfor %}
@@ -48,7 +46,7 @@
                             <br>
                             Nom de code: {{ contact.nomCode }}
                             <br>
-                           nationalité: {{ contact.nationality }}
+                           nationalité du contact: {{ contact.nationality }}
                         </li>
                     {% endfor %}
                 </ul>
@@ -63,7 +61,7 @@
                             <br>
                             Nom de code: {{ cible.nameCode }}
                             <br>
-                            {{ cible.nationality }}
+                            Nationalité de la cible: {{ cible.nationality }}
                         </li>
                     {% endfor %}
                 </ul>

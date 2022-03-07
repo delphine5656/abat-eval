@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Classe\SearchPlanque;
 use App\Entity\Planque;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

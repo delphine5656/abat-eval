@@ -34,6 +34,8 @@ class Speciality
      */
     private $missions;
 
+
+
     public function __construct()
     {
         $this->agents = new ArrayCollection();
@@ -118,4 +120,5 @@ class Speciality
 
         return $this;
     }
+
 }

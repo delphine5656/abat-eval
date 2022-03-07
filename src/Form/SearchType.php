@@ -2,11 +2,9 @@
 
 namespace App\Form;
 
-use App\Classe\Search;
+
+use App\Classe\SearchPlanque;
 use App\Entity\Category;
-use App\Entity\Pays;
-use App\Entity\Speciality;
-use App\Entity\Statut;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -49,7 +47,7 @@ class SearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Search::class,
+            'data_class' => SearchPlanque::class,
             'method' => 'GET',
             'csrf_protection' => false,
         ]);
