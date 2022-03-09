@@ -11,7 +11,6 @@ use App\Validator\Constraints as MyConstraint;
 
 /**
  * @ORM\Entity(repositoryClass=MissionRepository::class)
- * @ORM\Table(name="mission", indexes={@ORM\Index(columns={"nom_code", "titre", "description", "category_id","speciality_id", "pays_id"},flags={"fulltext"})})
  */
 class Mission
 {
@@ -104,19 +103,9 @@ class Mission
 
     /**
      * @ORM\ManyToMany(targetEntity=Cible::class, inversedBy="missions")
-
-     */
-    private $cible;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Test::class, inversedBy="missions")
      * @MyConstraint\IsCibleNationalite()
      */
-    private $test;
-
-
-
-
+    private $cible;
 
     public function __construct()
     {
@@ -125,7 +114,6 @@ class Mission
         $this->agent = new ArrayCollection();
         $this->contact = new ArrayCollection();
         $this->cible = new ArrayCollection();
-        $this->test = new ArrayCollection();
 
     }
     public function __toString()
@@ -357,31 +345,4 @@ class Mission
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Test>
-     */
-    public function getTest(): Collection
-    {
-        return $this->test;
-    }
-
-    public function addTest(Test $test): self
-    {
-        if (!$this->test->contains($test)) {
-            $this->test[] = $test;
-        }
-
-        return $this;
-    }
-
-    public function removeTest(Test $test): self
-    {
-        $this->test->removeElement($test);
-
-        return $this;
-    }
-
-
-
 }
